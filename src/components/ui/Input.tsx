@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface InputProps {
   label?: string;
@@ -16,15 +16,15 @@ interface InputProps {
 
 const Input: React.FC<InputProps> = ({
   label,
-  type = 'text',
-  name = '',
+  type = "text",
+  name = "",
   placeholder,
   value,
   onChange,
   error,
   required = false,
   disabled = false,
-  className = '',
+  className = "",
   id,
 }) => {
   const uniqueId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
@@ -32,7 +32,7 @@ const Input: React.FC<InputProps> = ({
   return (
     <div className={`mb-4 ${className}`}>
       {label && (
-        <label 
+        <label
           htmlFor={uniqueId}
           className="block text-sm font-medium text-gray-700 mb-1"
         >
@@ -50,8 +50,12 @@ const Input: React.FC<InputProps> = ({
         disabled={disabled}
         className={`
           w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition
-          ${error ? 'border-error-500' : 'border-gray-300'}
-          ${disabled ? 'bg-gray-100 text-gray-500 cursor-not-allowed' : 'bg-white'}
+          ${error ? "border-error-500" : "border-gray-300"}
+          ${
+            disabled
+              ? "bg-gray-100 text-gray-500 cursor-not-allowed"
+              : "bg-white"
+          }
         `}
       />
       {error && <p className="mt-1 text-sm text-error-500">{error}</p>}
